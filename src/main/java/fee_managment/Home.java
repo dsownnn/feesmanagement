@@ -62,7 +62,6 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
-        btn_add_fees.setBackground(new java.awt.Color(204, 204, 204));
         btn_add_fees.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_add_fees.setText("Add Fees");
         btn_add_fees.addActionListener(new java.awt.event.ActionListener() {
