@@ -24,17 +24,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="btn_Signup" min="-2" pref="108" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_Login" min="-2" pref="108" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_Exit" min="-2" pref="108" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -47,21 +47,21 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="txt_firstname" max="32767" attributes="0"/>
-                          <Component id="txt_username" alignment="0" pref="323" max="32767" attributes="0"/>
-                          <Component id="txt_lastname" pref="323" max="32767" attributes="0"/>
-                          <Component id="txt_contact" pref="323" max="32767" attributes="0"/>
+                          <Component id="txt_username" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_lastname" max="32767" attributes="0"/>
+                          <Component id="txt_contact" max="32767" attributes="0"/>
                           <Component id="txt_password" alignment="0" max="32767" attributes="0"/>
                           <Component id="txt_con_password" max="32767" attributes="0"/>
-                          <Component id="txt_dob" max="32767" attributes="0"/>
+                          <Component id="txt_dob" min="-2" pref="323" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lbl_contact_error" min="-2" pref="193" max="-2" attributes="0"/>
-                  <Component id="lbl_password_error" min="-2" pref="206" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="lbl_password_error" pref="206" max="32767" attributes="0"/>
+                  <Component id="lbl_contact_error" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,7 +69,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txt_firstname" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -86,7 +86,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txt_password" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -104,7 +104,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                       <Component id="txt_contact" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -116,7 +116,7 @@
                   <Component id="btn_Signup" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
                   <Component id="btn_Exit" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,7 +135,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="371" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="380" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

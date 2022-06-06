@@ -97,9 +97,6 @@
             <Property name="text" type="java.lang.String" value="Management"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -203,10 +200,10 @@
                       <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="btnSignup" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="btnExit" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="btnLogin" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btnLogin" min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblError" min="-2" max="-2" attributes="0"/>
@@ -255,9 +252,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnLogin">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Grande" size="13" style="0"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
           <Events>

@@ -28,7 +28,14 @@ public class Home extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_add_fees = new javax.swing.JButton();
+        btn_view_records = new javax.swing.JButton();
+        btn_search_rec = new javax.swing.JButton();
+        btn_view_courses = new javax.swing.JButton();
+        btn_edit = new javax.swing.JButton();
+        btn_view_report = new javax.swing.JButton();
+        btn_logout = new javax.swing.JButton();
+        btn_about = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,23 +49,81 @@ public class Home extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(367, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(351, 351, 351)
                 .addComponent(jLabel1)
-                .addGap(341, 341, 341))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(60, 60, 60)
                 .addComponent(jLabel1)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_add_fees.setBackground(new java.awt.Color(204, 204, 204));
+        btn_add_fees.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_add_fees.setText("Add Fees");
+        btn_add_fees.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_add_feesActionPerformed(evt);
+            }
+        });
+
+        btn_view_records.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_view_records.setText("View All Records");
+        btn_view_records.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_view_recordsActionPerformed(evt);
+            }
+        });
+
+        btn_search_rec.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_search_rec.setText("Search Record");
+        btn_search_rec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_search_recActionPerformed(evt);
+            }
+        });
+
+        btn_view_courses.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_view_courses.setText("View Courses");
+        btn_view_courses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_view_coursesActionPerformed(evt);
+            }
+        });
+
+        btn_edit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_edit.setText("Edit Course");
+        btn_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editActionPerformed(evt);
+            }
+        });
+
+        btn_view_report.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_view_report.setText("View Report");
+        btn_view_report.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_view_reportActionPerformed(evt);
+            }
+        });
+
+        btn_logout.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_logout.setText("Log out");
+        btn_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_logoutActionPerformed(evt);
+            }
+        });
+
+        btn_about.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_about.setText("About");
+        btn_about.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_aboutActionPerformed(evt);
             }
         });
 
@@ -68,27 +133,88 @@ public class Home extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(302, 302, 302)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_view_courses, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_add_fees, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(65, 65, 65)
+                                .addComponent(btn_search_rec, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_view_records, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_view_report, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addComponent(btn_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(102, 102, 102)
+                        .addComponent(btn_about, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(202, 202, 202)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 149, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_add_fees, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_view_records, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_search_rec, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_view_courses, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_view_report, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_about, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_add_feesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_feesActionPerformed
         Login_Page login=new Login_Page();
         login.show();
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_add_feesActionPerformed
+
+    private void btn_view_recordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_view_recordsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_view_recordsActionPerformed
+
+    private void btn_search_recActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_search_recActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_search_recActionPerformed
+
+    private void btn_view_coursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_view_coursesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_view_coursesActionPerformed
+
+    private void btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_editActionPerformed
+
+    private void btn_view_reportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_view_reportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_view_reportActionPerformed
+
+    private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
+        Login_Page logout=new Login_Page();
+        logout.show();
+        this.dispose();
+    }//GEN-LAST:event_btn_logoutActionPerformed
+
+    private void btn_aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aboutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_aboutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,7 +252,14 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_about;
+    private javax.swing.JButton btn_add_fees;
+    private javax.swing.JButton btn_edit;
+    private javax.swing.JButton btn_logout;
+    private javax.swing.JButton btn_search_rec;
+    private javax.swing.JButton btn_view_courses;
+    private javax.swing.JButton btn_view_records;
+    private javax.swing.JButton btn_view_report;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

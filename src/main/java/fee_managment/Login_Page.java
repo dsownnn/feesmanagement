@@ -40,7 +40,7 @@ public class Login_Page extends javax.swing.JFrame {
             if(rs.next())
             {
                 JOptionPane.showMessageDialog(this, "Login successful");
-                Admin_DashBoard Home=new Admin_DashBoard();
+                Home Home=new Home();
                 Home.show();
                 this.dispose();
             } else
@@ -137,8 +137,6 @@ public class Login_Page extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel4.getAccessibleContext().setAccessibleDescription("");
-
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Username:");
 
@@ -159,7 +157,6 @@ public class Login_Page extends javax.swing.JFrame {
             }
         });
 
-        btnLogin.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,7 +234,7 @@ public class Login_Page extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
