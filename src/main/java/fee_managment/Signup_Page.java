@@ -23,7 +23,7 @@ import java.sql.Statement;
 public class Signup_Page extends javax.swing.JFrame {
 
     /**
-     * Creates new form Signup_Page
+     * Creates new form Signu p_Page
      */
     String fname, lname, uname, password, con_pass, contact_no;
     Date dob;

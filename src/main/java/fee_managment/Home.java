@@ -103,7 +103,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         btn_view_report.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btn_view_report.setText("View Report");
+        btn_view_report.setText("View Reports");
         btn_view_report.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_view_reportActionPerformed(evt);
