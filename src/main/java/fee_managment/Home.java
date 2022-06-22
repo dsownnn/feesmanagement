@@ -64,6 +64,11 @@ public class Home extends javax.swing.JFrame {
 
         btn_add_fees.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_add_fees.setText("Add Fees");
+        btn_add_fees.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_add_feesMouseClicked(evt);
+            }
+        });
         btn_add_fees.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_add_feesActionPerformed(evt);
@@ -182,8 +187,8 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_add_feesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_feesActionPerformed
-        Login_Page login=new Login_Page();
-        login.show();
+        Add_Fees addFees=new Add_Fees();
+        addFees.show();
         this.dispose();
     }//GEN-LAST:event_btn_add_feesActionPerformed
 
@@ -216,6 +221,12 @@ public class Home extends javax.swing.JFrame {
     private void btn_aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aboutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_aboutActionPerformed
+
+    private void btn_add_feesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_add_feesMouseClicked
+        Add_Fees addFees = new Add_Fees();
+        addFees.setVisiable(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_add_feesMouseClicked
 
     /**
      * @param args the command line arguments
