@@ -33,9 +33,10 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="Title" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" attributes="0">
-              <EmptySpace min="93" pref="93" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,7 +79,7 @@
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="174" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -210,7 +211,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblError" min="-2" pref="34" max="-2" attributes="0"/>
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>

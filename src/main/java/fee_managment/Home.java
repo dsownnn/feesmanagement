@@ -41,7 +41,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(28, 48, 89));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Dashboard");
 
@@ -50,7 +50,7 @@ public class Home extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(369, 369, 369)
+                .addGap(338, 338, 338)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -180,7 +180,7 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_about, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
