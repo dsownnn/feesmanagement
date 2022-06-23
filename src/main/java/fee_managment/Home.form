@@ -94,6 +94,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/add.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value=" Add Fees"/>
       </Properties>
       <Events>
@@ -110,6 +113,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/search.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="View Records"/>
       </Properties>
@@ -128,7 +134,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Course List"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/file.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" Course List"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_view_coursesActionPerformed"/>
@@ -143,6 +152,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/edit.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Edit Course"/>
       </Properties>
@@ -160,7 +172,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="View Reports"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/search (1).png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" View Reports"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_view_reportActionPerformed"/>
@@ -182,7 +197,10 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Log Out"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/turn-off.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" Log Out"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_logoutActionPerformed"/>
@@ -198,14 +216,17 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="About"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/follower.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" About"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_aboutActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="520" y="560" width="169" height="59"/>
+          <AbsoluteConstraints x="520" y="560" width="169" height="60"/>
         </Constraint>
       </Constraints>
     </Component>

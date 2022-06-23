@@ -77,6 +77,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 971, -1));
 
         btn_add_fees.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_add_fees.setIcon(new javax.swing.ImageIcon("/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/add.png")); // NOI18N
         btn_add_fees.setText(" Add Fees");
         btn_add_fees.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -91,6 +92,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().add(btn_add_fees, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 195, 91));
 
         btn_search_rec.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_search_rec.setIcon(new javax.swing.ImageIcon("/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/search.png")); // NOI18N
         btn_search_rec.setText("View Records");
         btn_search_rec.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -105,7 +107,8 @@ public class Home extends javax.swing.JFrame {
         getContentPane().add(btn_search_rec, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 195, 91));
 
         btn_view_courses.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btn_view_courses.setText("Course List");
+        btn_view_courses.setIcon(new javax.swing.ImageIcon("/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/file.png")); // NOI18N
+        btn_view_courses.setText(" Course List");
         btn_view_courses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_view_coursesActionPerformed(evt);
@@ -114,6 +117,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().add(btn_view_courses, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 411, 195, 91));
 
         btn_edit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btn_edit.setIcon(new javax.swing.ImageIcon("/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/edit.png")); // NOI18N
         btn_edit.setText("Edit Course");
         btn_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +127,8 @@ public class Home extends javax.swing.JFrame {
         getContentPane().add(btn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 411, 195, 91));
 
         btn_view_report.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btn_view_report.setText("View Reports");
+        btn_view_report.setIcon(new javax.swing.ImageIcon("/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/search (1).png")); // NOI18N
+        btn_view_report.setText(" View Reports");
         btn_view_report.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_view_reportActionPerformed(evt);
@@ -134,7 +139,8 @@ public class Home extends javax.swing.JFrame {
         btn_logout.setBackground(new java.awt.Color(255, 51, 51));
         btn_logout.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_logout.setForeground(new java.awt.Color(255, 255, 255));
-        btn_logout.setText("Log Out");
+        btn_logout.setIcon(new javax.swing.ImageIcon("/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/turn-off.png")); // NOI18N
+        btn_logout.setText(" Log Out");
         btn_logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_logoutActionPerformed(evt);
@@ -143,13 +149,14 @@ public class Home extends javax.swing.JFrame {
         getContentPane().add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 169, 59));
 
         btn_about.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btn_about.setText("About");
+        btn_about.setIcon(new javax.swing.ImageIcon("/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/follower.png")); // NOI18N
+        btn_about.setText(" About");
         btn_about.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_aboutActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 560, 169, 59));
+        getContentPane().add(btn_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 560, 169, 60));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

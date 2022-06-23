@@ -311,8 +311,9 @@ public class Signup_Page extends javax.swing.JFrame {
         });
 
         btn_Login.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btn_Login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Favicon/in.png"))); // NOI18N
-        btn_Login.setText("Login");
+        btn_Login.setIcon(new javax.swing.ImageIcon("/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/in.png")); // NOI18N
+        btn_Login.setText(" Login");
+        btn_Login.setAlignmentY(0.0F);
         btn_Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_LoginActionPerformed(evt);
@@ -320,7 +321,7 @@ public class Signup_Page extends javax.swing.JFrame {
         });
 
         btn_Exit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btn_Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fee_managment/exit.png"))); // NOI18N
+        btn_Exit.setIcon(new javax.swing.ImageIcon("/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/exit.png")); // NOI18N
         btn_Exit.setText("Exit");
         btn_Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,7 +330,7 @@ public class Signup_Page extends javax.swing.JFrame {
         });
 
         btn_Signup.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btn_Signup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Favicon/add-user.png"))); // NOI18N
+        btn_Signup.setIcon(new javax.swing.ImageIcon("/Users/dsown/Desktop/INS3035_JAVA/Tuitionfeemngm/Favicon/add-user.png")); // NOI18N
         btn_Signup.setText("Sign Up");
         btn_Signup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -421,7 +422,7 @@ public class Signup_Page extends javax.swing.JFrame {
                     .addComponent(btn_Signup, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
