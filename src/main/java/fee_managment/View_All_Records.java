@@ -30,7 +30,7 @@ public class View_All_Records extends javax.swing.JFrame {
         
         try {
             Connection con = DBConnection.getConnection();
-            PreparedStatement pst = con.prepareStatement("select * from fees_details");
+            PreparedStatement pst = con.prepareStatement("select * from feesdetails");
             ResultSet rs = pst.executeQuery();
             
             while(rs.next()){

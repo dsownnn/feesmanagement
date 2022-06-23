@@ -21,15 +21,17 @@ public final class Add_Fees extends JFrame {
 
     private int receiptNo;
 
+
+
     /**
      * Creates new form Add_Fees
      */
     public Add_Fees() {
         initComponents();
         displayCashFirst();
-        fillComboBox();
+        //fillComboBox();
         
-        receiptNo = getReceiptNo();
+        int receiptNo = getReceiptNo();
         txt_receiptNo.setText(Integer.toString(receiptNo));
     }
     
@@ -89,7 +91,7 @@ public final class Add_Fees extends JFrame {
         return true;
     }
     
-    public void fillComboBox() {
+    /*public void fillComboBox() {
         try {
             Connection con = DBConnection.getConnection();
             PreparedStatement pst = con.prepareStatement("select * from COURSE");
@@ -101,13 +103,13 @@ public final class Add_Fees extends JFrame {
         } catch(Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
     
     public int getReceiptNo() {
                
         try {
             Connection con = DBConnection.getConnection();
-            PreparedStatement pst = con.prepareStatement("select max(receipt_no) from fees_details");
+            PreparedStatement pst = con.prepareStatement("select max(receipt_no) from feesdetails");
             ResultSet rs = pst.executeQuery();
             
             if (rs.next() != true) {
@@ -121,7 +123,7 @@ public final class Add_Fees extends JFrame {
     
     public String insertData() {
         
-        String status = "";
+        String status = ("");
         
         int receiptNo = Integer.parseInt(txt_receiptNo.getText());
         String studentName = txt_ReceivedFrom.getText();
@@ -131,9 +133,9 @@ public final class Add_Fees extends JFrame {
         String transfer_code = txt_transfer_code.getText();
         String courseName = txt_CourseName.getText();
         
-        String gstin = txt_GSTNo.getText();
+        //String gstin = txt_GSTNo.getText();
         float totalAmount = Float.parseFloat(txt_total.getText());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-mm-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
         String date = dateFormat.format(dateChooser.getDate());
         float initialAmount = Float.parseFloat(txt_Amount.getText());
         float vat = Float.parseFloat(txt_VAT.getText());
@@ -143,7 +145,7 @@ public final class Add_Fees extends JFrame {
         
         try {
             Connection con = DBConnection.getConnection();
-            PreparedStatement pst = con.prepareStatement("INSERT INTO fees_details VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement pst = con.prepareStatement("INSERT INTO feesdetails VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             
             pst.setInt(1, receiptNo);
             pst.setString(2, studentName);
@@ -153,14 +155,14 @@ public final class Add_Fees extends JFrame {
             pst.setString(6, transfer_code);
             
             pst.setString(7, courseName);
-            pst.setString(8, gstin);
-            pst.setFloat(9, totalAmount);
-            pst.setString(10, date);
-            pst.setFloat(11, initialAmount);
-            pst.setFloat(12, vat);
-            pst.setString(13, remark);
-            pst.setInt(14, year1);
-            pst.setInt(15, year2);
+            //pst.setString(8, gstin);
+            pst.setFloat(8, totalAmount);
+            pst.setString(9, date);
+            pst.setFloat(10, initialAmount);
+            pst.setFloat(11, vat);
+            pst.setString(12, remark);
+            pst.setInt(13, year1);
+            pst.setInt(14, year2);
             
             int rowCount = pst.executeUpdate();
                 if (rowCount == 1) {
@@ -170,6 +172,7 @@ public final class Add_Fees extends JFrame {
                 }
             
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return status;
     }
@@ -336,7 +339,7 @@ public final class Add_Fees extends JFrame {
         );
 
         btn_print.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btn_print.setText("Print");
+        btn_print.setText("Insert");
         btn_print.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_printActionPerformed(evt);
@@ -367,6 +370,11 @@ public final class Add_Fees extends JFrame {
         jLabel20.setText("Fees*");
 
         txt_CourseName.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        txt_CourseName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_CourseNameActionPerformed(evt);
+            }
+        });
 
         txt_remark.setColumns(20);
         txt_remark.setRows(5);
@@ -457,6 +465,7 @@ public final class Add_Fees extends JFrame {
         });
 
         comboCourse.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        comboCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select--", "Java", "Mysql", "Python" }));
         comboCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboCourseActionPerformed(evt);
@@ -616,9 +625,9 @@ public final class Add_Fees extends JFrame {
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(comboCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
+                .addGap(34, 34, 34)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -724,6 +733,7 @@ public final class Add_Fees extends JFrame {
                 JOptionPane.showMessageDialog(this, "Record insertion failed");
             }
         }
+        
     }//GEN-LAST:event_btn_printActionPerformed
 
     private void txt_AmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_AmountActionPerformed
@@ -747,7 +757,7 @@ public final class Add_Fees extends JFrame {
     }//GEN-LAST:event_txt_rollNoActionPerformed
 
     private void comboCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCourseActionPerformed
-        // TODO add your handling code here:
+        txt_CourseName.setText(comboCourse.getSelectedItem().toString());
     }//GEN-LAST:event_comboCourseActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -767,6 +777,10 @@ public final class Add_Fees extends JFrame {
         course.show();
         this.dispose();
     }//GEN-LAST:event_btnListActionPerformed
+
+    private void txt_CourseNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CourseNameActionPerformed
+        
+    }//GEN-LAST:event_txt_CourseNameActionPerformed
 
     /**
      * @param args the command line arguments

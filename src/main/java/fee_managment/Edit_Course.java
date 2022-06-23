@@ -74,8 +74,7 @@ public class Edit_Course extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Course insertion failed");
                     e.printStackTrace();
                 }
-            
-        
+    
     }
     
     public void update(int id, String cname, double cost){
@@ -137,7 +136,6 @@ public class Edit_Course extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnList = new javax.swing.JButton();
-        btnViewAll = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
@@ -160,7 +158,7 @@ public class Edit_Course extends javax.swing.JFrame {
         panelSideBar.setBackground(new java.awt.Color(28, 48, 89));
 
         btnSearch.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnSearch.setText("Search Record");
+        btnSearch.setText("View Records");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
@@ -183,16 +181,9 @@ public class Edit_Course extends javax.swing.JFrame {
             }
         });
 
-        btnViewAll.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnViewAll.setText("View all Records");
-        btnViewAll.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewAllActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 40)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Edit Course");
 
         btnBack.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -211,14 +202,13 @@ public class Edit_Course extends javax.swing.JFrame {
         panelSideBarLayout.setHorizontalGroup(
             panelSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSideBarLayout.createSequentialGroup()
-                .addGroup(panelSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelSideBarLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel4))
-                    .addGroup(panelSideBarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelSideBarLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(panelSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,21 +219,19 @@ public class Edit_Course extends javax.swing.JFrame {
         panelSideBarLayout.setVerticalGroup(
             panelSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSideBarLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(77, 77, 77)
                 .addComponent(jLabel4)
-                .addGap(63, 63, 63)
+                .addGap(98, 98, 98)
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addGap(67, 67, 67))
         );
 
         getContentPane().add(panelSideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 750));
@@ -320,12 +308,6 @@ public class Edit_Course extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1406, 758));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
-        View_All_Records view_all=new View_All_Records();
-        view_all.show();
-        this.dispose();
-    }//GEN-LAST:event_btnViewAllActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int id = Integer.parseInt(txt_courseID.getText());
@@ -428,7 +410,6 @@ public class Edit_Course extends javax.swing.JFrame {
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnList;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnViewAll;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
