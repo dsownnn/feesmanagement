@@ -195,10 +195,7 @@ public class View_All_Records extends javax.swing.JFrame {
 
         tbl_Records_Data.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Receipt No", "Student Name", "Roll No", "Course Name", "Total Amount", "Payment mode", "Date", "Remark"
