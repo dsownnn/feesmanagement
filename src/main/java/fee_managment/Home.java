@@ -62,7 +62,7 @@ public class Home extends javax.swing.JFrame {
         );
 
         btn_add_fees.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btn_add_fees.setText("Add Fees");
+        btn_add_fees.setText(" Add Fees");
         btn_add_fees.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_add_feesMouseClicked(evt);

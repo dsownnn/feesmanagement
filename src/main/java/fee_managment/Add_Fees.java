@@ -566,7 +566,8 @@ public final class Add_Fees extends JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel11)
                                 .addGap(12, 12, 12)
-                                .addComponent(txt_Year2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(txt_Year2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
