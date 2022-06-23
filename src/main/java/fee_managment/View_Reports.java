@@ -5,7 +5,6 @@
 package fee_managment;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
@@ -27,7 +26,7 @@ public class View_Reports extends javax.swing.JFrame {
         initComponents();
         fillComboBox();
     }
-
+    
     public void fillComboBox() {
         try {
             Connection con = DBConnection.getConnection();
@@ -69,7 +68,7 @@ public class View_Reports extends javax.swing.JFrame {
                 float amount = rs.getFloat("total_amount");
                 String remark = rs.getString("remark");
                 
-                amountTotal = amountTotal + amount;
+                //amountTotal = amountTotal + amount;
                 
                 Object[] obj = {receiptNo, studentName, rollNo, courseName, amount, remark};
                 model = (DefaultTableModel)tbl_feesDetails.getModel();
@@ -77,7 +76,7 @@ public class View_Reports extends javax.swing.JFrame {
             }
             
             lbl_course.setText(cname);
-            lbl_totalAmount.setText(amountTotal.toString());
+            //lbl_totalAmount.setText(amountTotal.toString());
             
             
         } catch (Exception e) {
@@ -183,7 +182,7 @@ public class View_Reports extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("View Report");
+        jLabel4.setText("View Reports");
 
         javax.swing.GroupLayout panelSideBarLayout = new javax.swing.GroupLayout(panelSideBar);
         panelSideBar.setLayout(panelSideBarLayout);
@@ -453,19 +452,6 @@ public class View_Reports extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txt_filePathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_filePathActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_filePathActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        setRecordsToTable();
-        clearTable();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         Search_Record search=new Search_Record();
         search.show();
@@ -484,13 +470,26 @@ public class View_Reports extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnListActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void comboCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCourseActionPerformed
         lbl_course.setText(comboCourse.getSelectedItem().toString());
     }//GEN-LAST:event_comboCourseActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txt_filePathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_filePathActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_filePathActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        clearTable();
+        setRecordsToTable();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

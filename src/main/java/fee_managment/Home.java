@@ -217,7 +217,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_logoutActionPerformed
 
     private void btn_aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aboutActionPerformed
-        // TODO add your handling code here:
+        About about=new About();
+        about.show();
+        this.dispose();
     }//GEN-LAST:event_btn_aboutActionPerformed
 
     private void btn_add_feesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_add_feesMouseClicked
