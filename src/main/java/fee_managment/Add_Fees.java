@@ -189,7 +189,6 @@ public final class Add_Fees extends JFrame {
         btnEdit = new javax.swing.JButton();
         btnList = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
         btnViewAll = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btn_print = new javax.swing.JButton();
@@ -277,20 +276,10 @@ public final class Add_Fees extends JFrame {
         });
 
         btnBack.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setText("Back to Dashboard");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
-            }
-        });
-
-        btnExit.setBackground(new java.awt.Color(255, 51, 51));
-        btnExit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(255, 255, 255));
-        btnExit.setText("Log Out");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
             }
         });
 
@@ -316,7 +305,6 @@ public final class Add_Fees extends JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(panelSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,9 +332,7 @@ public final class Add_Fees extends JFrame {
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(34, 34, 34))
         );
 
         btn_print.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -760,12 +746,6 @@ public final class Add_Fees extends JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_rollNoActionPerformed
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        Login_Page logout=new Login_Page();
-        logout.show();
-        this.dispose();
-    }//GEN-LAST:event_btnExitActionPerformed
-
     private void comboCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCourseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboCourseActionPerformed
@@ -826,7 +806,6 @@ public final class Add_Fees extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnList;
     private javax.swing.JButton btnSearch;

@@ -75,7 +75,6 @@ public class View_All_Records extends javax.swing.JFrame {
         btnEdit = new javax.swing.JButton();
         btnList = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
         btnViewAll = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -127,17 +126,12 @@ public class View_All_Records extends javax.swing.JFrame {
         });
 
         btnBack.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setText("Back to Dashboard");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-
-        btnExit.setBackground(new java.awt.Color(255, 51, 51));
-        btnExit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(255, 255, 255));
-        btnExit.setText("Log Out");
 
         btnViewAll.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnViewAll.setText("Add Fees");
@@ -170,7 +164,6 @@ public class View_All_Records extends javax.swing.JFrame {
                 .addGroup(panelSideBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelSideBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                         .addComponent(btnList, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                         .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                         .addComponent(btnViewAll, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
@@ -195,11 +188,9 @@ public class View_All_Records extends javax.swing.JFrame {
                 .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHome2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
+                .addGap(157, 157, 157)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(45, 45, 45))
         );
 
         tbl_Records_Data.setModel(new javax.swing.table.DefaultTableModel(
@@ -330,7 +321,6 @@ public class View_All_Records extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnHome2;
     private javax.swing.JButton btnList;
     private javax.swing.JButton btnSearch;

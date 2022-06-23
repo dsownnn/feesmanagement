@@ -137,7 +137,6 @@ public class Edit_Course extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnList = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
         btnViewAll = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
@@ -184,16 +183,6 @@ public class Edit_Course extends javax.swing.JFrame {
             }
         });
 
-        btnExit.setBackground(new java.awt.Color(255, 51, 51));
-        btnExit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(255, 255, 255));
-        btnExit.setText("Log Out");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-
         btnViewAll.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnViewAll.setText("View all Records");
         btnViewAll.addActionListener(new java.awt.event.ActionListener() {
@@ -207,7 +196,7 @@ public class Edit_Course extends javax.swing.JFrame {
         jLabel4.setText("Edit Course");
 
         btnBack.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setText("Back to Dashboard");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -230,7 +219,6 @@ public class Edit_Course extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(panelSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,11 +241,9 @@ public class Edit_Course extends javax.swing.JFrame {
                 .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(58, 58, 58))
         );
 
         getContentPane().add(panelSideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 750));
@@ -383,12 +369,6 @@ public class Edit_Course extends javax.swing.JFrame {
         txt_coursePrice.setText(model.getValueAt(rowNo, 2).toString());
     }//GEN-LAST:event_tbl_courseDataMouseClicked
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        Login_Page logout=new Login_Page();
-        logout.show();
-        this.dispose();
-    }//GEN-LAST:event_btnExitActionPerformed
-
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         Add_Fees fees=new Add_Fees();
         fees.show();
@@ -445,7 +425,6 @@ public class Edit_Course extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnList;
     private javax.swing.JButton btnSearch;

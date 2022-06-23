@@ -80,7 +80,6 @@ public class Search_Record extends javax.swing.JFrame {
         btnEdit = new javax.swing.JButton();
         btnList = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
         btnViewAll = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -134,17 +133,12 @@ public class Search_Record extends javax.swing.JFrame {
         });
 
         btnBack.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setText("Back to Dashboard");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-
-        btnExit.setBackground(new java.awt.Color(255, 51, 51));
-        btnExit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(255, 255, 255));
-        btnExit.setText("Log Out");
 
         btnViewAll.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnViewAll.setText("View all Records");
@@ -166,7 +160,6 @@ public class Search_Record extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(panelSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnViewAll, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                    .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                     .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                     .addComponent(btnList, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                     .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
@@ -192,9 +185,7 @@ public class Search_Record extends javax.swing.JFrame {
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(30, 30, 30))
         );
 
         tbl_studentdata.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -359,7 +350,6 @@ public class Search_Record extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnList;
     private javax.swing.JButton btnSearch;
