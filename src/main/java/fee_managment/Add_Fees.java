@@ -4,6 +4,12 @@
  */
 package fee_managment;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -11,7 +17,9 @@ import javax.swing.JOptionPane;
  *
  * @author dsown
  */
-public class Add_Fees extends JFrame {
+public final class Add_Fees extends JFrame {
+
+    private int receiptNo;
 
     /**
      * Creates new form Add_Fees
@@ -19,14 +27,18 @@ public class Add_Fees extends JFrame {
     public Add_Fees() {
         initComponents();
         displayCashFirst();
+        fillComboBox();
+        
+        receiptNo = getReceiptNo();
+        txt_receiptNo.setText(Integer.toString(receiptNo));
     }
     
     public void displayCashFirst()
     {
-        lbl_DDNo.setVisible(false);
+        lbl_transfer_code.setVisible(false);
         lbl_bankName.setVisible(false);
         
-        txt_DDNo.setVisible(false);
+        txt_transfer_code.setVisible(false);
         txt_bankName.setVisible(false);
     }
     
@@ -59,7 +71,7 @@ public class Add_Fees extends JFrame {
         
         if(combo_PaymentMode.getSelectedItem().toString().equalsIgnoreCase("Transfer")) {
             
-            if (txt_DDNo.getText().equals("")) {
+            if (txt_transfer_code.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Please enter Transfer code)");
                 return false;
             }
@@ -75,6 +87,91 @@ public class Add_Fees extends JFrame {
             }
         }
         return true;
+    }
+    
+    public void fillComboBox() {
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement pst = con.prepareStatement("select * from COURSE");
+            ResultSet rs = pst.executeQuery();
+            while(rs.next());{
+                comboCourse.addItem(rs.getString("CNAME"));
+            }
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public int getReceiptNo() {
+               
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement pst = con.prepareStatement("select max(receipt_no) from fees_details");
+            ResultSet rs = pst.executeQuery();
+            
+            if (rs.next() != true) {
+            } else {
+                receiptNo = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        return receiptNo+1;
+    }
+    
+    public String insertData() {
+        
+        String status = "";
+        
+        int receiptNo = Integer.parseInt(txt_receiptNo.getText());
+        String studentName = txt_ReceivedFrom.getText();
+        String rollNo = txt_rollNo.getText();
+        String paymentMode = combo_PaymentMode.getSelectedItem().toString();
+        String bankName = txt_bankName.getText();
+        String transfer_code = txt_transfer_code.getText();
+        String courseName = txt_CourseName.getText();
+        
+        String gstin = txt_GSTNo.getText();
+        float totalAmount = Float.parseFloat(txt_total.getText());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-mm-dd");
+        String date = dateFormat.format(dateChooser.getDate());
+        float initialAmount = Float.parseFloat(txt_Amount.getText());
+        float vat = Float.parseFloat(txt_VAT.getText());
+        String remark = txt_remark.getText();
+        int year1 = Integer.parseInt(txt_Year1.getText());
+        int year2 = Integer.parseInt(txt_Year2.getText());
+        
+        try {
+            Connection con = DBConnection.getConnection();
+            PreparedStatement pst = con.prepareStatement("INSERT INTO fees_details VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            
+            pst.setInt(1, receiptNo);
+            pst.setString(2, studentName);
+            pst.setString(3, rollNo);
+            pst.setString(4, paymentMode);
+            pst.setString(5, bankName);
+            pst.setString(6, transfer_code);
+            
+            pst.setString(7, courseName);
+            pst.setString(8, gstin);
+            pst.setFloat(9, totalAmount);
+            pst.setString(10, date);
+            pst.setFloat(11, initialAmount);
+            pst.setFloat(12, vat);
+            pst.setString(13, remark);
+            pst.setInt(14, year1);
+            pst.setInt(15, year2);
+            
+            int rowCount = pst.executeUpdate();
+                if (rowCount == 1) {
+                    status = "success";
+                } else {
+                    status = "failed";
+                }
+            
+        } catch (SQLException e) {
+        }
+        return status;
     }
 
     /**
@@ -104,15 +201,13 @@ public class Add_Fees extends JFrame {
         txt_Amount = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txt_CourseName = new javax.swing.JTextField();
-        jTextArea1 = new javax.swing.JTextArea();
+        txt_remark = new javax.swing.JTextArea();
         jLabel18 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
-        comboCourse = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         txt_Year1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -131,12 +226,13 @@ public class Add_Fees extends JFrame {
         dateChooser = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
         txt_GSTNo = new javax.swing.JLabel();
-        txt_DDNo = new javax.swing.JTextField();
-        lbl_DDNo = new javax.swing.JLabel();
+        txt_transfer_code = new javax.swing.JTextField();
+        lbl_transfer_code = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        txt_rollNo = new javax.swing.JTextField();
+        comboCourse = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelSideBar.setBackground(new java.awt.Color(28, 48, 89));
 
@@ -177,6 +273,11 @@ public class Add_Fees extends JFrame {
         btnExit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Log Out");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         btnViewAll.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnViewAll.setText("View all Records");
@@ -209,14 +310,14 @@ public class Add_Fees extends JFrame {
                     .addGroup(panelSideBarLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jLabel4)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         panelSideBarLayout.setVerticalGroup(
             panelSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSideBarLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -226,14 +327,12 @@ public class Add_Fees extends JFrame {
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(128, 128, 128)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
-
-        getContentPane().add(panelSideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 750));
 
         btn_print.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_print.setText("Print");
@@ -242,25 +341,19 @@ public class Add_Fees extends JFrame {
                 btn_printActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_print, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 640, 100, 60));
 
         jLabel19.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel19.setText("Receiver Signature");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 580, -1, 20));
 
         txt_total.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(txt_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 520, 180, 40));
 
         jLabel21.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel21.setText("Total");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 530, -1, 20));
 
         jLabel17.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel17.setText("VAT");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 490, -1, 20));
 
         txt_VAT.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(txt_VAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 480, 180, 40));
 
         txt_Amount.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         txt_Amount.addActionListener(new java.awt.event.ActionListener() {
@@ -268,55 +361,34 @@ public class Add_Fees extends JFrame {
                 txt_AmountActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_Amount, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 440, 180, 40));
 
         jLabel20.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel20.setText("Fees*");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 450, -1, 20));
 
         txt_CourseName.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(txt_CourseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 310, 40));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        getContentPane().add(jTextArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, 310, 120));
+        txt_remark.setColumns(20);
+        txt_remark.setRows(5);
 
         jLabel18.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel18.setText("Course name:");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, 20));
 
         jLabel15.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel15.setText("Amount (Rs)");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 380, -1, 20));
+        jLabel15.setText("Amount (VND)");
 
         jLabel16.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel16.setText("Head");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, -1, 20));
-
-        jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel14.setText("Sr No");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, -1, 20));
-        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 900, 10));
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 900, 10));
+        jLabel16.setText("Details");
 
         jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel12.setText("Course");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, -1, 20));
-
-        comboCourse.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        comboCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select--", "DD", "Cheque", "Cash", "Card" }));
-        getContentPane().add(comboCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, 310, 40));
 
         jLabel13.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel13.setText("Roll No:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 310, -1, 20));
 
         txt_Year1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(txt_Year1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 260, 80, 40));
 
         jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel11.setText("to");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 270, -1, 20));
 
         txt_Year2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         txt_Year2.addActionListener(new java.awt.event.ActionListener() {
@@ -324,25 +396,19 @@ public class Add_Fees extends JFrame {
                 txt_Year2ActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_Year2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, 80, 40));
 
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel10.setText("the following payment in the college office for the year");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, 20));
 
         txt_ReceivedFrom.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(txt_ReceivedFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 200, 40));
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel9.setText("Received From*:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, -1, 20));
 
         lbl_bankName.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         lbl_bankName.setText("Bank Name*:");
-        getContentPane().add(lbl_bankName, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, 20));
 
         txt_bankName.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(txt_bankName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 200, 40));
 
         combo_PaymentMode.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         combo_PaymentMode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select--", "Transfer", "Card", "Cash" }));
@@ -351,48 +417,244 @@ public class Add_Fees extends JFrame {
                 combo_PaymentModeActionPerformed(evt);
             }
         });
-        getContentPane().add(combo_PaymentMode, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 200, 40));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setText("Mode of payment*:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, 20));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Receipt no*:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("REC-");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, 20));
 
         txt_receiptNo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(txt_receiptNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 200, 40));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel6.setText("Date*:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, -1, 20));
 
         dateChooser.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(dateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 60, 190, 40));
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel7.setText("Tax code:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 110, -1, 20));
 
         txt_GSTNo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         txt_GSTNo.setText("22HVSJH55");
-        getContentPane().add(txt_GSTNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 110, -1, 20));
 
-        txt_DDNo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(txt_DDNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 200, 40));
+        txt_transfer_code.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
 
-        lbl_DDNo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lbl_DDNo.setText("Transfer code*:");
-        getContentPane().add(lbl_DDNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, -1, 20));
+        lbl_transfer_code.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lbl_transfer_code.setText("Transfer code*:");
 
         jLabel22.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel22.setText("Remark:");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, -1, 20));
+
+        txt_rollNo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        txt_rollNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_rollNoActionPerformed(evt);
+            }
+        });
+
+        comboCourse.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        comboCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCourseActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelSideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel1)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2)
+                        .addGap(7, 7, 7)
+                        .addComponent(txt_receiptNo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(140, 140, 140)
+                        .addComponent(jLabel6)
+                        .addGap(5, 5, 5)
+                        .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel3)
+                        .addGap(12, 12, 12)
+                        .addComponent(combo_PaymentMode, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(140, 140, 140)
+                        .addComponent(jLabel7)
+                        .addGap(15, 15, 15)
+                        .addComponent(txt_GSTNo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(lbl_transfer_code)
+                        .addGap(46, 46, 46)
+                        .addComponent(txt_transfer_code, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(lbl_bankName)
+                        .addGap(67, 67, 67)
+                        .addComponent(txt_bankName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel9)
+                        .addGap(39, 39, 39)
+                        .addComponent(txt_ReceivedFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(320, 320, 320)
+                        .addComponent(jLabel16)
+                        .addGap(291, 291, 291)
+                        .addComponent(jLabel15))
+                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel18)
+                        .addGap(30, 30, 30)
+                        .addComponent(txt_CourseName, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel20)
+                        .addGap(2, 2, 2)
+                        .addComponent(txt_Amount, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel22)
+                        .addGap(78, 78, 78)
+                        .addComponent(txt_remark, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel21))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_VAT, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(btn_print, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(123, 123, 123)
+                                .addComponent(comboCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(117, 117, 117)
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_rollNo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(10, 10, 10)
+                                .addComponent(txt_Year1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel11)
+                                .addGap(12, 12, 12)
+                                .addComponent(txt_Year2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_receiptNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(combo_PaymentMode, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_GSTNo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lbl_transfer_code, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_transfer_code, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lbl_bankName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_bankName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_ReceivedFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_Year1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_Year2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_rollNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(comboCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_CourseName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Amount, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(txt_remark, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txt_VAT, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
+                .addComponent(btn_print, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelSideBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -421,29 +683,29 @@ public class Add_Fees extends JFrame {
 
     private void combo_PaymentModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_PaymentModeActionPerformed
         if (combo_PaymentMode.getSelectedIndex() == 0) {
-            lbl_DDNo.setVisible(false);
-            txt_DDNo.setVisible(false);
+            lbl_transfer_code.setVisible(false);
+            txt_transfer_code.setVisible(false);
             lbl_bankName.setVisible(false);
             txt_bankName.setVisible(false);
         }
         
         if (combo_PaymentMode.getSelectedIndex() == 1) {
-            lbl_DDNo.setVisible(true);
-            txt_DDNo.setVisible(true);
+            lbl_transfer_code.setVisible(true);
+            txt_transfer_code.setVisible(true);
             lbl_bankName.setVisible(true);
             txt_bankName.setVisible(true);
         }
         
         if (combo_PaymentMode.getSelectedItem().equals("Card")) {
-            lbl_DDNo.setVisible(false);
-            txt_DDNo.setVisible(false);
+            lbl_transfer_code.setVisible(false);
+            txt_transfer_code.setVisible(false);
             lbl_bankName.setVisible(true);
             txt_bankName.setVisible(true);
         }
         
         if (combo_PaymentMode.getSelectedItem().equals("Cash")){
-            lbl_DDNo.setVisible(false);
-            txt_DDNo.setVisible(false);
+            lbl_transfer_code.setVisible(false);
+            txt_transfer_code.setVisible(false);
             lbl_bankName.setVisible(false);
             txt_bankName.setVisible(false);
         }
@@ -451,7 +713,13 @@ public class Add_Fees extends JFrame {
 
     private void btn_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_printActionPerformed
         if (validation() == true){
-            JOptionPane.showMessageDialog(this, "Validation successful");
+            
+            String result = insertData();
+            if (result.equals("success")) {
+                JOptionPane.showMessageDialog(this, "Record insert successfully");
+            } else {
+                JOptionPane.showMessageDialog(this, "Record insertion failed");
+            }
         }
     }//GEN-LAST:event_btn_printActionPerformed
 
@@ -470,6 +738,20 @@ public class Add_Fees extends JFrame {
         home.show();
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txt_rollNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_rollNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_rollNoActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        Login_Page logout=new Login_Page();
+        logout.show();
+        this.dispose();
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void comboCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCourseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboCourseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -523,7 +805,6 @@ public class Add_Fees extends JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -540,13 +821,11 @@ public class Add_Fees extends JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel lbl_DDNo;
     private javax.swing.JLabel lbl_bankName;
+    private javax.swing.JLabel lbl_transfer_code;
     private javax.swing.JPanel panelSideBar;
     private javax.swing.JTextField txt_Amount;
     private javax.swing.JTextField txt_CourseName;
-    private javax.swing.JTextField txt_DDNo;
     private javax.swing.JLabel txt_GSTNo;
     private javax.swing.JTextField txt_ReceivedFrom;
     private javax.swing.JTextField txt_VAT;
@@ -554,7 +833,10 @@ public class Add_Fees extends JFrame {
     private javax.swing.JTextField txt_Year2;
     private javax.swing.JTextField txt_bankName;
     private javax.swing.JTextField txt_receiptNo;
+    private javax.swing.JTextArea txt_remark;
+    private javax.swing.JTextField txt_rollNo;
     private javax.swing.JTextField txt_total;
+    private javax.swing.JTextField txt_transfer_code;
     // End of variables declaration//GEN-END:variables
 
     void setVisiable(boolean b) {

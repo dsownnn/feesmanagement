@@ -85,6 +85,11 @@ public class Home extends javax.swing.JFrame {
 
         btn_search_rec.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_search_rec.setText("Search Record");
+        btn_search_rec.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_search_recMouseClicked(evt);
+            }
+        });
         btn_search_rec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_search_recActionPerformed(evt);
@@ -193,7 +198,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_add_feesActionPerformed
 
     private void btn_view_recordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_view_recordsActionPerformed
-        // TODO add your handling code here:
+        View_All_Records view_all=new View_All_Records();
+        view_all.show();
+        this.dispose();
     }//GEN-LAST:event_btn_view_recordsActionPerformed
 
     private void btn_search_recActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_search_recActionPerformed
@@ -205,7 +212,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_view_coursesActionPerformed
 
     private void btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editActionPerformed
-        // TODO add your handling code here:
+        Edit_Course edit=new Edit_Course();
+        edit.show();
+        this.dispose();
     }//GEN-LAST:event_btn_editActionPerformed
 
     private void btn_view_reportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_view_reportActionPerformed
@@ -227,6 +236,12 @@ public class Home extends javax.swing.JFrame {
         addFees.setVisiable(true);
         this.dispose();
     }//GEN-LAST:event_btn_add_feesMouseClicked
+
+    private void btn_search_recMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_search_recMouseClicked
+        Search_Record search = new Search_Record();
+        search.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_search_recMouseClicked
 
     /**
      * @param args the command line arguments
