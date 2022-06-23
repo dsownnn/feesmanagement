@@ -97,7 +97,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         btn_view_courses.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btn_view_courses.setText("View Courses");
+        btn_view_courses.setText("Courses List");
         btn_view_courses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_view_coursesActionPerformed(evt);
@@ -204,11 +204,15 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_view_recordsActionPerformed
 
     private void btn_search_recActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_search_recActionPerformed
-        // TODO add your handling code here:
+        Search_Record search=new Search_Record();
+        search.show();
+        this.dispose();
     }//GEN-LAST:event_btn_search_recActionPerformed
 
     private void btn_view_coursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_view_coursesActionPerformed
-        // TODO add your handling code here:
+        View_Courses course=new View_Courses();
+        course.show();
+        this.dispose();
     }//GEN-LAST:event_btn_view_coursesActionPerformed
 
     private void btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editActionPerformed
@@ -218,7 +222,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_editActionPerformed
 
     private void btn_view_reportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_view_reportActionPerformed
-        // TODO add your handling code here:
+        View_Reports report=new View_Reports();
+        report.show();
+        this.dispose();
     }//GEN-LAST:event_btn_view_reportActionPerformed
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed

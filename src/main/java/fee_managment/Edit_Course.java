@@ -134,7 +134,6 @@ public class Edit_Course extends javax.swing.JFrame {
     private void initComponents() {
 
         panelSideBar = new javax.swing.JPanel();
-        btnHome = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnList = new javax.swing.JButton();
@@ -142,6 +141,7 @@ public class Edit_Course extends javax.swing.JFrame {
         btnViewAll = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_courseData = new javax.swing.JTable();
@@ -160,24 +160,13 @@ public class Edit_Course extends javax.swing.JFrame {
 
         panelSideBar.setBackground(new java.awt.Color(28, 48, 89));
 
-        btnHome.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnHome.setText("Home");
-        btnHome.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnHomeMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnHomeMouseExited(evt);
-            }
-        });
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-
         btnSearch.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnSearch.setText("Search Record");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         btnEdit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnEdit.setText("Add Fees");
@@ -189,6 +178,11 @@ public class Edit_Course extends javax.swing.JFrame {
 
         btnList.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnList.setText("Course List");
+        btnList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListActionPerformed(evt);
+            }
+        });
 
         btnExit.setBackground(new java.awt.Color(255, 51, 51));
         btnExit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -220,6 +214,9 @@ public class Edit_Course extends javax.swing.JFrame {
             }
         });
 
+        btnHome.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btnHome.setText("View Reports");
+
         javax.swing.GroupLayout panelSideBarLayout = new javax.swing.GroupLayout(panelSideBar);
         panelSideBar.setLayout(panelSideBarLayout);
         panelSideBarLayout.setHorizontalGroup(
@@ -236,9 +233,9 @@ public class Edit_Course extends javax.swing.JFrame {
                             .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         panelSideBarLayout.setVerticalGroup(
@@ -246,9 +243,7 @@ public class Edit_Course extends javax.swing.JFrame {
             .addGroup(panelSideBarLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(63, 63, 63)
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,7 +251,9 @@ public class Edit_Course extends javax.swing.JFrame {
                 .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(128, 128, 128)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,22 +335,10 @@ public class Edit_Course extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseEntered
-
-    }//GEN-LAST:event_btnHomeMouseEntered
-
-    private void btnHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseExited
-
-    }//GEN-LAST:event_btnHomeMouseExited
-
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        Home home=new Home();
-        home.show();
-        this.dispose();
-    }//GEN-LAST:event_btnHomeActionPerformed
-
     private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
-        // TODO add your handling code here:
+        View_All_Records view_all=new View_All_Records();
+        view_all.show();
+        this.dispose();
     }//GEN-LAST:event_btnViewAllActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -409,6 +394,18 @@ public class Edit_Course extends javax.swing.JFrame {
         fees.show();
         this.dispose();
     }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        Search_Record search=new Search_Record();
+        search.show();
+        this.dispose();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
+        View_Courses course=new View_Courses();
+        course.show();
+        this.dispose();
+    }//GEN-LAST:event_btnListActionPerformed
 
     /**
      * @param args the command line arguments

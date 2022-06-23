@@ -53,6 +53,11 @@ public class View_All_Records extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
+    
+    public void clearTable(){
+        DefaultTableModel model = (DefaultTableModel)tbl_Records_Data.getModel();
+        model.setRowCount(0);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,7 +87,7 @@ public class View_All_Records extends javax.swing.JFrame {
         panelSideBar2.setBackground(new java.awt.Color(28, 48, 89));
 
         btnHome2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnHome2.setText("Home");
+        btnHome2.setText("View Reports");
         btnHome2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnHome2MouseEntered(evt);
@@ -99,12 +104,27 @@ public class View_All_Records extends javax.swing.JFrame {
 
         btnSearch.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnSearch.setText("Search Record");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         btnEdit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnEdit.setText("Edit Courses");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnList.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnList.setText("Course List");
+        btnList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListActionPerformed(evt);
+            }
+        });
 
         btnBack.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnBack.setText("Back");
@@ -161,13 +181,11 @@ public class View_All_Records extends javax.swing.JFrame {
         panelSideBar2Layout.setVerticalGroup(
             panelSideBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSideBar2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addGap(59, 59, 59)
-                .addComponent(btnHome2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(57, 57, 57)
                 .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,7 +193,9 @@ public class View_All_Records extends javax.swing.JFrame {
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnHome2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,8 +257,8 @@ public class View_All_Records extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHome2MouseExited
 
     private void btnHome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome2ActionPerformed
-        Home home=new Home();
-        home.show();
+        View_Reports report=new View_Reports();
+        report.show();
         this.dispose();
     }//GEN-LAST:event_btnHome2ActionPerformed
 
@@ -253,6 +273,24 @@ public class View_All_Records extends javax.swing.JFrame {
         fees.show();
         this.dispose();
     }//GEN-LAST:event_btnViewAllActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        Search_Record search=new Search_Record();
+        search.show();
+        this.dispose();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        Edit_Course edit=new Edit_Course();
+        edit.show();
+        this.dispose();
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
+        View_Courses course=new View_Courses();
+        course.show();
+        this.dispose();
+    }//GEN-LAST:event_btnListActionPerformed
 
     /**
      * @param args the command line arguments

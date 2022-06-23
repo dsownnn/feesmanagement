@@ -237,7 +237,7 @@ public final class Add_Fees extends JFrame {
         panelSideBar.setBackground(new java.awt.Color(28, 48, 89));
 
         btnHome.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnHome.setText("Home");
+        btnHome.setText("View Reports");
         btnHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnHomeMouseEntered(evt);
@@ -254,12 +254,27 @@ public final class Add_Fees extends JFrame {
 
         btnSearch.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnSearch.setText("Search Record");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         btnEdit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnEdit.setText("Edit Courses");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnList.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnList.setText("Course List");
+        btnList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListActionPerformed(evt);
+            }
+        });
 
         btnBack.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnBack.setText("Back");
@@ -317,9 +332,7 @@ public final class Add_Fees extends JFrame {
             .addGroup(panelSideBarLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jLabel4)
-                .addGap(41, 41, 41)
-                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(55, 55, 55)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,6 +340,8 @@ public final class Add_Fees extends JFrame {
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnList, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -664,12 +679,14 @@ public final class Add_Fees extends JFrame {
     }//GEN-LAST:event_txt_Year2ActionPerformed
 
     private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
-        // TODO add your handling code here:
+        View_All_Records view_all=new View_All_Records();
+        view_all.show();
+        this.dispose();
     }//GEN-LAST:event_btnViewAllActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        Home home=new Home();
-        home.show();
+        View_Reports report=new View_Reports();
+        report.show();
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
 
@@ -752,6 +769,24 @@ public final class Add_Fees extends JFrame {
     private void comboCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCourseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboCourseActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        Search_Record search=new Search_Record();
+        search.show();
+        this.dispose();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        Edit_Course edit=new Edit_Course();
+        edit.show();
+        this.dispose();
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
+        View_Courses course=new View_Courses();
+        course.show();
+        this.dispose();
+    }//GEN-LAST:event_btnListActionPerformed
 
     /**
      * @param args the command line arguments

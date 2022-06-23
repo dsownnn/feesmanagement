@@ -86,6 +86,11 @@ public class View_Reports extends javax.swing.JFrame {
         }
     }
     
+    public void clearTable(){
+        DefaultTableModel model = (DefaultTableModel)tbl_courseData.getModel();
+        model.setRowCount(0);
+    }
+    
     /** public void clearTable{
     DefaultTableModel model = (DefaultTableModel)tbl_feesDetails.getModel();
     model.setRowCount(0);
@@ -137,7 +142,7 @@ public class View_Reports extends javax.swing.JFrame {
         panelSideBar.setBackground(new java.awt.Color(28, 48, 89));
 
         btnHome.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnHome.setText("Home");
+        btnHome.setText("Add Fees");
         btnHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnHomeMouseEntered(evt);
@@ -154,12 +159,27 @@ public class View_Reports extends javax.swing.JFrame {
 
         btnSearch.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnSearch.setText("Search Record");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         btnEdit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnEdit.setText("Edit Courses");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnList.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnList.setText("Course List");
+        btnList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListActionPerformed(evt);
+            }
+        });
 
         btnBack.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnBack.setText("Back");
@@ -211,7 +231,7 @@ public class View_Reports extends javax.swing.JFrame {
             .addGroup(panelSideBarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addGap(37, 37, 37)
+                .addGap(46, 46, 46)
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -448,8 +468,8 @@ public class View_Reports extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHomeMouseExited
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        Home home=new Home();
-        home.show();
+        Add_Fees addFees=new Add_Fees();
+        addFees.show();
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
 
@@ -460,7 +480,9 @@ public class View_Reports extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
-        // TODO add your handling code here:
+        View_All_Records view_all=new View_All_Records();
+        view_all.show();
+        this.dispose();
     }//GEN-LAST:event_btnViewAllActionPerformed
 
     private void combo_courseDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_courseDetailsActionPerformed
@@ -479,6 +501,24 @@ public class View_Reports extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        Search_Record search=new Search_Record();
+        search.show();
+        this.dispose();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        Edit_Course edit=new Edit_Course();
+        edit.show();
+        this.dispose();
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
+        View_Courses course=new View_Courses();
+        course.show();
+        this.dispose();
+    }//GEN-LAST:event_btnListActionPerformed
 
     /**
      * @param args the command line arguments
