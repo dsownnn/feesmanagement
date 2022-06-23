@@ -342,6 +342,8 @@ public class Signup_Page extends javax.swing.JFrame {
 
         lbl_password_error.setForeground(new java.awt.Color(255, 51, 0));
 
+        txt_dob.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

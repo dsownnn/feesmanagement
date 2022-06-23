@@ -352,10 +352,10 @@ public final class Add_Fees extends JFrame {
 
         jLabel19.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel19.setText("Receiver Signature");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 607, -1, 20));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, -1, 20));
 
         txt_total.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(txt_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 547, 180, 40));
+        getContentPane().add(txt_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 547, 220, 40));
 
         jLabel21.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel21.setText("Total");
@@ -366,7 +366,7 @@ public final class Add_Fees extends JFrame {
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(919, 517, -1, 20));
 
         txt_VAT.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(txt_VAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 507, 180, 40));
+        getContentPane().add(txt_VAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 507, 220, 40));
 
         txt_Amount.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         txt_Amount.addActionListener(new java.awt.event.ActionListener() {
@@ -374,7 +374,7 @@ public final class Add_Fees extends JFrame {
                 txt_AmountActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_Amount, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 467, 180, 40));
+        getContentPane().add(txt_Amount, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 467, 220, 40));
 
         jLabel20.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel20.setText("Fees*");
@@ -398,7 +398,7 @@ public final class Add_Fees extends JFrame {
 
         jLabel15.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel15.setText("Amount (VND)");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(989, 400, -1, 20));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 400, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel16.setText("Details");
