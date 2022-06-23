@@ -36,8 +36,10 @@ public class Home extends javax.swing.JFrame {
         btn_view_report = new javax.swing.JButton();
         btn_logout = new javax.swing.JButton();
         btn_about = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(28, 48, 89));
 
@@ -72,6 +74,8 @@ public class Home extends javax.swing.JFrame {
                 .addGap(51, 51, 51))
         );
 
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 971, -1));
+
         btn_add_fees.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_add_fees.setText(" Add Fees");
         btn_add_fees.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -84,6 +88,7 @@ public class Home extends javax.swing.JFrame {
                 btn_add_feesActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_add_fees, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 195, 91));
 
         btn_search_rec.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_search_rec.setText("View Records");
@@ -97,6 +102,7 @@ public class Home extends javax.swing.JFrame {
                 btn_search_recActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_search_rec, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 195, 91));
 
         btn_view_courses.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_view_courses.setText("Course List");
@@ -105,6 +111,7 @@ public class Home extends javax.swing.JFrame {
                 btn_view_coursesActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_view_courses, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 411, 195, 91));
 
         btn_edit.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_edit.setText("Edit Course");
@@ -113,6 +120,7 @@ public class Home extends javax.swing.JFrame {
                 btn_editActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 411, 195, 91));
 
         btn_view_report.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_view_report.setText("View Reports");
@@ -121,6 +129,7 @@ public class Home extends javax.swing.JFrame {
                 btn_view_reportActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_view_report, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 411, 195, 91));
 
         btn_logout.setBackground(new java.awt.Color(255, 51, 51));
         btn_logout.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -131,6 +140,7 @@ public class Home extends javax.swing.JFrame {
                 btn_logoutActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 169, 59));
 
         btn_about.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btn_about.setText("About");
@@ -139,52 +149,20 @@ public class Home extends javax.swing.JFrame {
                 btn_aboutActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_about, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 560, 169, 59));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(238, 238, 238)
-                        .addComponent(btn_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(102, 102, 102)
-                        .addComponent(btn_about, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(btn_view_courses, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(btn_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btn_view_report, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(btn_add_fees, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(btn_search_rec, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 149, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_add_fees, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_search_rec, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_view_courses, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_view_report, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_about, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 650, -1, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -289,5 +267,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
