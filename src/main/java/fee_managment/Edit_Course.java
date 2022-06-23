@@ -196,6 +196,11 @@ public class Edit_Course extends javax.swing.JFrame {
 
         btnHome.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnHome.setText("View Reports");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelSideBarLayout = new javax.swing.GroupLayout(panelSideBar);
         panelSideBar.setLayout(panelSideBarLayout);
@@ -368,6 +373,12 @@ public class Edit_Course extends javax.swing.JFrame {
         course.show();
         this.dispose();
     }//GEN-LAST:event_btnListActionPerformed
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        View_Reports report=new View_Reports();
+        report.show();
+        this.dispose();
+    }//GEN-LAST:event_btnHomeActionPerformed
 
     /**
      * @param args the command line arguments
