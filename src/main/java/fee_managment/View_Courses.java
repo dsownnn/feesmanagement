@@ -78,7 +78,7 @@ public class View_Courses extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(28, 48, 89));
 
         btnHome.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnHome.setText("Home");
+        btnHome.setText("Add Fees");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
@@ -102,7 +102,7 @@ public class View_Courses extends javax.swing.JFrame {
         });
 
         btnList.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        btnList.setText("Course List");
+        btnList.setText("View Reports");
         btnList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListActionPerformed(evt);
@@ -210,8 +210,8 @@ public class View_Courses extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        Home home=new Home();
-        home.show();
+        Add_Fees addFees=new Add_Fees();
+        addFees.show();
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
 
@@ -226,8 +226,8 @@ public class View_Courses extends javax.swing.JFrame {
     }//GEN-LAST:event_tbl_courseDataMouseClicked
 
     private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
-        View_Courses course=new View_Courses();
-        course.show();
+        View_Reports report=new View_Reports();
+        report.show();
         this.dispose();
     }//GEN-LAST:event_btnListActionPerformed
 
